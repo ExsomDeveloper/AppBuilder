@@ -5,6 +5,7 @@
     "unity": "2018.3",
     "description": "A set of modules and components for rapid development of a gaming application.",
     "dependencies": {
+        "com.mycompany.mypackage1": "git+https://github.com/exsom1/com.pimpochkagames.neutralagescreen.git",
         "com.unity.nuget.newtonsoft-json": "2.0.0"
     },
     "keywords": [ "exsom", "unity", "appbuilder" ]
