@@ -1,0 +1,11 @@
+{
+    "name": "com.pimpochkagames.corelibrary",
+    "displayName": "Core Library",
+    "version": "1.0.0",
+    "unity": "2018.3",
+    "description": "Core Library is a foundation library that provides useful datatypes, design patterns and utility methods.",
+    "dependencies": {
+        "com.unity.nuget.newtonsoft-json": "2.0.0"
+    },
+    "keywords": [ "exsom", "unity", "core-library" ]
+}
