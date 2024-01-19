@@ -1,17 +1,12 @@
 {
-    "name": "com.voxelbusters.corelibrary",
-    "displayName": "Core Library",
-    "version": "1.0.7",
+    "name": "com.exsom.appbuilder",
+    "displayName": "App Builder",
+    "version": "1.0.0",
     "unity": "2018.3",
-    "description": "Core Library is a foundation library that provides useful datatypes, design patterns and utility methods.",
+    "description": "A set of modules and components for rapid development of a gaming application.",
     "dependencies": {
-        "com.unity.nuget.newtonsoft-json": "2.0.0"
+        "com.unity.nuget.newtonsoft-json": "2.0.0",
+        "com.pimpochkagames.neutralagescreen": "https://github.com/exsom1/com.pimpochkagames.neutralagescreen.git" 
     },
-    "keywords": [ "voxelbusters", "unity", "core-library" ],
-    "license": "MIT",
-    "author": {
-        "name": "Voxel Busters",
-        "email": "support@voxelbusters.com",
-        "url": "https://www.voxelbusters.com"
-    }
+    "keywords": [ "exsom", "unity", "appbuilder" ]
 }
