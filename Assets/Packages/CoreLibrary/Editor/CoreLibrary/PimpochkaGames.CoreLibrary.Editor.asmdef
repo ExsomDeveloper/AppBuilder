@@ -1,0 +1,18 @@
+{
+    "name": "PimpochkaGames.CoreLibrary.Editor",
+    "rootNamespace": "",
+    "references": [
+        "GUID:ccbaa3b7cdc789142b50088dae2cdbe1"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
