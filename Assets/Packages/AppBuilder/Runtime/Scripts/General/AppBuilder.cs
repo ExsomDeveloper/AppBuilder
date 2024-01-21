@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using PimpochkaGames.NeutralAgeScreen;
 
-namespace AppBuilder
+namespace PimpochkaGames.AppBuilder
 {
     public class AppBuilder : MonoBehaviour
     {

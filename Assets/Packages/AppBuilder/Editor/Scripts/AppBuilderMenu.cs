@@ -1,10 +1,9 @@
 using UnityEditor;
 using UnityEngine;
-using AppBuilder;
 
-namespace AppBuilderEditor
+namespace PimpochkaGames.AppBuilder.Editor
 {
-    public class AppBuilderMenu : Editor
+    public class AppBuilderMenu : UnityEditor.Editor
     {
         [MenuItem("App Builder/Settings", false, 2)]
         public static void OpenBuildWindow()

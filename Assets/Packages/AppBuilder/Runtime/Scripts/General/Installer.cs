@@ -1,6 +1,9 @@
 using UnityEngine;
 
-public abstract class Installer : ScriptableObject
+namespace PimpochkaGames.AppBuilder
 {
-    public abstract void Install(Context context);
+    public abstract class Installer : ScriptableObject
+    {
+        public abstract void Install(Context context);
+    }
 }

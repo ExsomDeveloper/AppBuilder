@@ -7,7 +7,7 @@ using UnityEditor.iOS.Xcode;
 using System.Collections.Generic;
 using System.IO;
 
-namespace AppBuilderEditor
+namespace PimpochkaGames.AppBuilder.Editor
 {
 public class PostProcessBuildiOS
 {

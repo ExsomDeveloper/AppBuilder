@@ -1,0 +1,19 @@
+{
+    "name": "impochkaGames.AppBuilder.Editorr",
+    "rootNamespace": "",
+    "references": [
+        "GUID:40858b56e59c2af48831c2f45d8783a7",
+        "GUID:8ef9f1d50becf6c43a46fd4c0a3e94e1"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": false,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

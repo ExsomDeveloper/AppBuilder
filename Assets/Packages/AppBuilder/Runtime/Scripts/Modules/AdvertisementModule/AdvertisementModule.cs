@@ -2,7 +2,7 @@
 using System;
 using UnityEngine;
 
-namespace AppBuilder
+namespace PimpochkaGames.AppBuilder
 {
     public class AdvertisementModule : Module<AdvertisementModule, AdvertisementModuleConfig>
     {
@@ -117,13 +117,13 @@ namespace AppBuilder
 }
 #endif
 
-namespace AppBuilder
+namespace PimpochkaGames.AppBuilder
 {
-public enum AdvertisingSourceType
-{
-    IronSource,
-    Debug
-}
+    public enum AdvertisingSourceType
+    {
+        IronSource,
+        Debug
+    }
 
     [System.Serializable]
     public class AdvertisementModuleConfig : ModuleConfig

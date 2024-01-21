@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine;
 
-namespace AppBuilder
+namespace PimpochkaGames.AppBuilder
 {
     public class InterstitialTimerShowHandler : ITimerHandler
     {

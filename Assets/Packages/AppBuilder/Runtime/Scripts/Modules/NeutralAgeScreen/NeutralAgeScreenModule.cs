@@ -1,6 +1,6 @@
 using PimpochkaGames.NeutralAgeScreen;
 
-namespace AppBuilder
+namespace PimpochkaGames.AppBuilder
 {
     public class NeutralAgeScreenModule : Module<NeutralAgeScreenModule, NeutralAgeScreenConfig>
     {
@@ -13,7 +13,7 @@ namespace AppBuilder
     }
 }
 
-namespace AppBuilder
+namespace PimpochkaGames.AppBuilder
 {
     [System.Serializable]
     public class NeutralAgeScreenConfig : ModuleConfig

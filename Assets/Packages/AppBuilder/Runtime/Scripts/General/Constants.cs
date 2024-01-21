@@ -1,4 +1,4 @@
-namespace AppBuilder
+namespace PimpochkaGames.AppBuilder
 {
     public class Constants
     {

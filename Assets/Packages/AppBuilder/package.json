@@ -6,7 +6,8 @@
     "description": "A set of modules and components for rapid development of a gaming application.",
     "dependencies": {
         "com.pimpochkagames.neutralagescreen": "https://github.com/exsom1/com.pimpochkagames.neutralagescreen.git",
-        "com.unity.nuget.newtonsoft-json": "2.0.0"
+        "com.unity.nuget.newtonsoft-json": "2.0.0",
+        "com.cysharp.unitask": "https://github.com/Cysharp/UniTask.git?path=src/UniTask/Assets/Plugins/UniTask"
     },
     "keywords": [ "exsom", "unity", "appbuilder" ]
 }

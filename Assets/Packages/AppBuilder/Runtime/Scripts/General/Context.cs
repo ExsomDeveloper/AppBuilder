@@ -1,5 +1,9 @@
 using System.Collections.Generic;
-public class Context
+
+namespace PimpochkaGames.AppBuilder
 {
-    private readonly Dictionary<string, object> _context = new(10);
+    public class Context
+    {
+        private readonly Dictionary<string, object> _context = new(10);
+    }
 }

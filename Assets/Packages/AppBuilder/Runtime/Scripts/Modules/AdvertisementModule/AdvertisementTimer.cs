@@ -2,7 +2,7 @@ using Cysharp.Threading.Tasks;
 using System.Collections;
 using UnityEngine;
 
-namespace AppBuilder
+namespace PimpochkaGames.AppBuilder
 {
     public class AdvertisementTimer
     {

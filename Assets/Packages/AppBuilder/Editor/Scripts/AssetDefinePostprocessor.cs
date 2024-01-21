@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 
-namespace AppBuilderEditor
+namespace PimpochkaGames.AppBuilder.Editor
 {
     [InitializeOnLoad]
     public class AssetDefinePostprocessor : AssetPostprocessor

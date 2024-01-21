@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace AppBuilder
+namespace PimpochkaGames.AppBuilder
 {
     [DefaultExecutionOrder(-10000)]
     public class AppBuilderBootstrap : MonoBehaviour

@@ -1,6 +1,6 @@
 using System.Collections;
 
-namespace AppBuilder
+namespace PimpochkaGames.AppBuilder
 {
     public interface ITimerHandler
     {

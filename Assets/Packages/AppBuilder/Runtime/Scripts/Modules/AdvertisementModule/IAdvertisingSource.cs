@@ -1,6 +1,6 @@
 using System;
 
-namespace AppBuilder
+namespace PimpochkaGames.AppBuilder
 {
     public interface IAdvertisingSource
     {

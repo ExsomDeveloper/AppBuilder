@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace AppBuilder
+namespace PimpochkaGames.AppBuilder
 {
     [CreateAssetMenu(fileName = nameof(AppBuilderConfig), menuName = "AppCore/Config")]
     public class AppBuilderConfig : ScriptableObject

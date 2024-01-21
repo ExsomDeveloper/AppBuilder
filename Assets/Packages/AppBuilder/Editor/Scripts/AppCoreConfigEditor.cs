@@ -1,12 +1,12 @@
 using UnityEditor;
 using UnityEngine;
-using AppBuilder;
 using PimpochkaGames.NeutralAgeScreen;
+using PimpochkaGames.AppBuilder;
 
-namespace AppBuilderEditor
+namespace PimpochkaGames.AppBuilder.Editor
 {
     [CustomEditor(typeof(AppBuilderConfig))]
-    public class AppCoreConfigEditor : Editor
+    public class AppCoreConfigEditor : UnityEditor.Editor
     {
         private string _buildPath = string.Empty;
 

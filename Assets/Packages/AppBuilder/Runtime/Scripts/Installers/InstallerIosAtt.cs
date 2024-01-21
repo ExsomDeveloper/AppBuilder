@@ -5,21 +5,24 @@ using UnityEngine;
 using Unity.Advertisement.IosSupport;
 #endif
 
-[CreateAssetMenu(fileName ="InstallerIosAtt", menuName ="AppBuilder/Installer/iOS ATT")]
-public class InstallerIosAtt : Installer
+namespace PimpochkaGames.AppBuilder
 {
-    public override void Install(Context context)
+    [CreateAssetMenu(fileName = "InstallerIosAtt", menuName = "AppBuilder/Installer/iOS ATT")]
+    public class InstallerIosAtt : Installer
     {
-        RequestAuthorizationTracking();
-    }
+        public override void Install(Context context)
+        {
+            RequestAuthorizationTracking();
+        }
 
-    public void RequestAuthorizationTracking()
-    {
+        public void RequestAuthorizationTracking()
+        {
 #if UNITY_IOS
         // Check the user's consent status.
         // If the status is undetermined, display the request request:
         if (ATTrackingStatusBinding.GetAuthorizationTrackingStatus() == ATTrackingStatusBinding.AuthorizationTrackingStatus.NOT_DETERMINED)
             ATTrackingStatusBinding.RequestAuthorizationTracking();
 #endif
+        }
     }
 }

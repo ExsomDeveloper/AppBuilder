@@ -3,7 +3,7 @@ using Cysharp.Threading.Tasks;
 using System;
 using UnityEngine;
 
-namespace AppBuilder
+namespace PimpochkaGames.AppBuilder
 {
     public class LoadingScreenModule : Module<LoadingScreenModule, LoadingScreenModuleConfig>
     {
@@ -96,7 +96,7 @@ namespace AppBuilder
 }
 #endif
 
-namespace AppBuilder
+namespace PimpochkaGames.AppBuilder
 {
     [System.Serializable]
     public class LoadingScreenModuleConfig : ModuleConfig

@@ -3,7 +3,7 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace AppBuilder
+namespace PimpochkaGames.AppBuilder
 {
     public class AdvertisementDebug : MonoBehaviour, IAdvertisingSource
     {
