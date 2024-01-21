@@ -1,3 +1,4 @@
+#if ADVERTISEMENT_MODULE
 using Cysharp.Threading.Tasks;
 using System;
 using UnityEngine;
@@ -132,3 +133,4 @@ namespace PimpochkaGames.AppBuilder
         }
     }
 }
+#endif
