@@ -95,12 +95,3 @@ namespace PimpochkaGames.AppBuilder
     }
 }
 #endif
-
-namespace PimpochkaGames.AppBuilder
-{
-    [System.Serializable]
-    public class LoadingScreenModuleConfig : ModuleConfig
-    {
-        public LoadingScreenView LoadingScreenPrefab;
-    }
-}

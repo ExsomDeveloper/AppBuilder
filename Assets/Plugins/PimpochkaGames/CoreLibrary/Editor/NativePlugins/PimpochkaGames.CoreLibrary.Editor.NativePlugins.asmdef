@@ -1,12 +1,9 @@
 {
-    "name": "impochkaGames.AppBuilder.Editorr",
+    "name": "PimpochkaGames.CoreLibrary.Editor.NativePlugins",
     "rootNamespace": "",
     "references": [
         "GUID:ccbaa3b7cdc789142b50088dae2cdbe1",
-        "GUID:506990296b74b1841808a2450da008f2",
-        "GUID:4049a67bbc9e2a841bf8710c8c80be4e",
-        "GUID:40858b56e59c2af48831c2f45d8783a7",
-        "GUID:8ef9f1d50becf6c43a46fd4c0a3e94e1"
+        "GUID:506990296b74b1841808a2450da008f2"
     ],
     "includePlatforms": [
         "Editor"
@@ -15,7 +12,7 @@
     "allowUnsafeCode": false,
     "overrideReferences": false,
     "precompiledReferences": [],
-    "autoReferenced": false,
+    "autoReferenced": true,
     "defineConstraints": [],
     "versionDefines": [],
     "noEngineReferences": false

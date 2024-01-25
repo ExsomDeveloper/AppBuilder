@@ -12,15 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bcddbe5f1faef54f995a8dec5d2ae07, type: 3}
   m_Name: AppBuilderConfig
   m_EditorClassIdentifier: 
-  LoadingScreenModuleEnabled: 1
-  AdvertisementModuleEnabled: 1
-  NeutralAgeScreenModuleEnabled: 1
-  NextSceneName: MainMenu
   _loadingScreenConfig:
+    _isEnabled: 1
     LoadingScreenPrefab: {fileID: 7584012432865189307, guid: 6def2bdfaf25c2741b5b6a450f2c544c, type: 3}
   _advertisementModuleConfig:
-    AdvertisingSourceType: 0
+    _isEnabled: 1
+    AdvertisingSourceType: 1
     SuccessfulRewardResetInterstitial: 1
     AdvertisementDebugPrefab: {fileID: 1276181264635081915, guid: 19a4f474cedf821428fd38d55fd7e152, type: 3}
     NeutralAgeScreen: 1
     NeutralAgeScreenManagerPrefab: {fileID: 6912164877605459615, guid: d09e2babfeb31464789250fdd5ab4d28, type: 3}
+  _nextSceneName: MainMenu

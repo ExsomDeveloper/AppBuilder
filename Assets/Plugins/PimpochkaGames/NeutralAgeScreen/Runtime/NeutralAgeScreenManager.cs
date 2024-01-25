@@ -48,7 +48,7 @@ namespace PimpochkaGames.NeutralAgeScreen
                     Destroy(gameObject);
             }
 
-            DontDestroyOnLoad(gameObject);
+            //DontDestroyOnLoad(gameObject);
 
             _applyButton.onClick.AddListener(ApplyUserAge);
             _snapScrollingAge.OnAgeOptionChanged += AgeOptionChangeHandler;

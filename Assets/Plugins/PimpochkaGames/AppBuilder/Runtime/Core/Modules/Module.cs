@@ -1,9 +1,10 @@
+using PimpochkaGames.CoreLibrary;
 using UnityEngine;
 
 namespace PimpochkaGames.AppBuilder
 {
     public abstract class Module<TModule, TConfig> : MonoBehaviour
-    where TConfig : ModuleConfig
+    where TConfig : ConfigPropertyGroup
     {
         public static bool Initialized { get; private set; }
 
@@ -17,10 +18,5 @@ namespace PimpochkaGames.AppBuilder
         }
 
         protected abstract void OnInitialize(TConfig config);
-    }
-
-    [System.Serializable]
-    public abstract class ModuleConfig
-    {
     }
 }

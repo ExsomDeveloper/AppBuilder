@@ -32,8 +32,7 @@ namespace PimpochkaGames.AppBuilder
 
             _initialized = true;
 
-            AppBuilderConfig config = await Resources.LoadAsync(nameof(AppBuilderConfig)) as AppBuilderConfig;
-
+            AppBuilderConfig config = AppBuilderConfig.Instance;
             GameObject gameObjectAppCore = new GameObject(nameof(AppBuilder));
             Instance = gameObjectAppCore.AddComponent<AppBuilder>();
             DontDestroyOnLoad(gameObjectAppCore);

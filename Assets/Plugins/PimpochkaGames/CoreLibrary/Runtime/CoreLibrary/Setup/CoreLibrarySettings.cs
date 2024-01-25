@@ -4,7 +4,7 @@
     {
         private static UnityPackageDefinition _package;
 
-        internal static UnityPackageDefinition Package => ObjectHelper.CreateInstanceIfNull(
+        public static UnityPackageDefinition Package => ObjectHelper.CreateInstanceIfNull(
             ref _package,
             () =>
             {

@@ -15,7 +15,7 @@ namespace PimpochkaGames.AppBuilder.Editor
         [MenuItem("App Builder/Documentation", false, 0)]
         public static void Documentation()
         {
-
+            Application.OpenURL(Constants.URL.DOCUMENTATION);
         }
     }
 }

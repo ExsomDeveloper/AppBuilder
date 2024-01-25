@@ -90,10 +90,10 @@ namespace PimpochkaGames.AppBuilder.Editor
                 GUILayout.Label("Advertisement module", GetTitleStyle(), GUILayout.ExpandWidth(true));
 
                 EditorGUI.BeginChangeCheck();
-                config.AdvertisementModuleEnabled = GUILayout.Toggle(config.AdvertisementModuleEnabled, "Enabled", GUILayout.ExpandWidth(true));
+                config.AdvertisementModuleConfig.IsEnabled = GUILayout.Toggle(config.AdvertisementModuleConfig.IsEnabled, "Enabled", GUILayout.ExpandWidth(true));
                 if (EditorGUI.EndChangeCheck())
                 {
-                    if (config.AdvertisementModuleEnabled)
+                    if (config.AdvertisementModuleConfig.IsEnabled)
                         AssetDefinePostprocessor.AddCompileDefine(Constants.Define.ADVERTISEMENT, GetBuildTargetGroup());
                     else
                         AssetDefinePostprocessor.RemoveCompileDefine(Constants.Define.ADVERTISEMENT, GetBuildTargetGroup());
@@ -105,7 +105,7 @@ namespace PimpochkaGames.AppBuilder.Editor
                 //if (GUILayout.Button("TEst", GUILayout.ExpandWidth(true), GUILayout.Height(60)))
                 //{};
 
-                if (config.AdvertisementModuleEnabled)
+                if (config.AdvertisementModuleConfig.IsEnabled)
                 {
                     config.AdvertisementModuleConfig.AdvertisingSourceType = (AdvertisingSourceType)EditorGUILayout.EnumPopup("Advertising source", config.AdvertisementModuleConfig.AdvertisingSourceType);
                     config.AdvertisementModuleConfig.SuccessfulRewardResetInterstitial = EditorGUILayout.Toggle("Successful reward reset interstitial", config.AdvertisementModuleConfig.SuccessfulRewardResetInterstitial);
@@ -127,10 +127,10 @@ namespace PimpochkaGames.AppBuilder.Editor
             {
                 GUILayout.Label("Loading screen module", GetTitleStyle());
                 EditorGUI.BeginChangeCheck();
-                config.LoadingScreenModuleEnabled = GUILayout.Toggle(config.LoadingScreenModuleEnabled, "Enabled");
+                config.LoadingScreenConfig.IsEnabled = GUILayout.Toggle(config.LoadingScreenConfig.IsEnabled, "Enabled");
                 if (EditorGUI.EndChangeCheck())
                 {
-                    if (config.LoadingScreenModuleEnabled)
+                    if (config.LoadingScreenConfig.IsEnabled)
                         AssetDefinePostprocessor.AddCompileDefine(Constants.Define.LOADING_SCREEN, GetBuildTargetGroup());
                     else
                         AssetDefinePostprocessor.RemoveCompileDefine(Constants.Define.LOADING_SCREEN, GetBuildTargetGroup());
@@ -139,7 +139,7 @@ namespace PimpochkaGames.AppBuilder.Editor
                 }
                 EditorGUILayout.Space(5);
 
-                if (config.LoadingScreenModuleEnabled)
+                if (config.LoadingScreenConfig.IsEnabled)
                 {
                     config.LoadingScreenConfig.LoadingScreenPrefab = EditorGUILayout.ObjectField(config.LoadingScreenConfig.LoadingScreenPrefab, typeof(LoadingScreenView), true) as LoadingScreenView;
                 }

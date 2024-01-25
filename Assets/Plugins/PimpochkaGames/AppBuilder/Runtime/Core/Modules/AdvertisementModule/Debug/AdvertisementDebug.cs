@@ -1,4 +1,3 @@
-using Cysharp.Threading.Tasks;
 using System;
 using UnityEngine;
 using UnityEngine.UI;
@@ -16,20 +15,47 @@ namespace PimpochkaGames.AppBuilder
         [SerializeField] private Button _rewardCloseButton;
         [SerializeField] private Button _rewardGetRewardButton;
 
-        public void Initialize() { }
+        private DateTime _lastClickTime;
+        private int _clickCount = 0;
+        private bool _testAdDisabled = false;
 
-        public async void ShowInterstitialPanel()
+        public void Initialize()
         {
-            await _rewardCloseButton.OnClickAsync();
+            _lastClickTime = DateTime.Now;
+        }
+
+        private void Update()
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                var delta = DateTime.Now.Subtract(_lastClickTime);
+                if (delta.Seconds < 1)
+                    _clickCount++;
+                else
+                    _clickCount = 1;
+
+                _lastClickTime = DateTime.Now;
+                if (_clickCount >= 6)
+                {
+                    _clickCount = 0;
+                    _testAdDisabled = !_testAdDisabled;
+                    UnityEngine.Debug.LogWarning($"[AdvertisementDebug] Advertisement disabled - {_testAdDisabled}");
+                }
+            }
         }
 
         public void ShowInterstitial(Action<AdvertisementStatus> callbackStatus, string placementName = "")
         {
             UnityEngine.Debug.Log("Interstitial");
+            if (_testAdDisabled)
+            {
+                callbackStatus?.Invoke(AdvertisementStatus.Completed);
+                return;
+            }
+
             _interstitialPanel.gameObject.SetActive(true);
             _interstitialCloseButton.onClick.AddListener(() =>
             {
-                UnityEngine.Debug.Log("Interstitial completed!");
                 _interstitialPanel.gameObject.SetActive(false);
                 callbackStatus?.Invoke(AdvertisementStatus.Completed);
                 _interstitialCloseButton.onClick.RemoveAllListeners();
@@ -39,6 +65,12 @@ namespace PimpochkaGames.AppBuilder
         public void ShowReward(Action<AdvertisementStatus> callbackStatus, string placementName = "")
         {
             UnityEngine.Debug.Log("Reward");
+            if (_testAdDisabled)
+            {
+                callbackStatus?.Invoke(AdvertisementStatus.Completed);
+                return;
+            }
+
             _rewardPanel.gameObject.SetActive(true);
             _rewardCloseButton.onClick.AddListener(() =>
             {
@@ -62,16 +94,25 @@ namespace PimpochkaGames.AppBuilder
 
         public void ShowBanner()
         {
+            if (_testAdDisabled)
+                return;
+
             Debug.LogWarning("Test banner not implemented!");
         }
 
         public void HideBanner()
         {
+            if (_testAdDisabled)
+                return;
+
             Debug.LogWarning("Test banner not implemented!");
         }
 
         public void DestroyBanner()
         {
+            if (_testAdDisabled)
+                return;
+
             Debug.LogWarning("Test banner not implemented!");
         }
 

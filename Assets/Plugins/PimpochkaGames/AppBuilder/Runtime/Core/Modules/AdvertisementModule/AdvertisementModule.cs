@@ -18,7 +18,6 @@ namespace PimpochkaGames.AppBuilder
             _advertisementDisabled = PlayerPrefs.HasKey(ADVERTISEMENT_DISABLED_KEY);
             _timer = new AdvertisementTimer(this);
 
-            UnityEngine.Debug.Log("[Test]: AdvertisementModule init");
             _advertisingSource = GetAdvertisementSource(config);
 
             if (config.NeutralAgeScreen)
@@ -137,6 +136,7 @@ namespace PimpochkaGames.AppBuilder
             return Instantiate(config.AdvertisementDebugPrefab, gameObject.transform);
 #endif
 
+#pragma warning disable CS0162
             return config.AdvertisingSourceType switch
             {
                 AdvertisingSourceType.IronSource => new IronSourceAdapter(),
@@ -144,6 +144,7 @@ namespace PimpochkaGames.AppBuilder
                 //TODO define
                 _ => Instantiate(config.AdvertisementDebugPrefab, gameObject.transform)
             };
+#pragma warning restore CS0162
         }
 
         private void SpawnNeutralAgeScreenManager(AdvertisementModuleConfig config)
@@ -153,23 +154,3 @@ namespace PimpochkaGames.AppBuilder
     }
 }
 #endif
-
-namespace PimpochkaGames.AppBuilder
-{
-    public enum AdvertisingSourceType
-    {
-        IronSource,
-        Debug
-    }
-
-    [System.Serializable]
-    public class AdvertisementModuleConfig : ModuleConfig
-    {
-        public AdvertisingSourceType AdvertisingSourceType = AdvertisingSourceType.IronSource;
-        public bool SuccessfulRewardResetInterstitial = true;
-        public AdvertisementDebug AdvertisementDebugPrefab;
-
-        public bool NeutralAgeScreen = true;
-        public NeutralAgeScreenManager NeutralAgeScreenManagerPrefab;
-    }
-}
