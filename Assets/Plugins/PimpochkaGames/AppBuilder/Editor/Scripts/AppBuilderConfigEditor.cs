@@ -1,11 +1,12 @@
 using UnityEditor;
 using UnityEngine;
 using PimpochkaGames.NeutralAgeScreen;
+using PimpochkaGames.CoreLibrary.Editor;
 
 namespace PimpochkaGames.AppBuilder.Editor
 {
     [CustomEditor(typeof(AppBuilderConfig))]
-    public class AppCoreConfigEditor : UnityEditor.Editor
+    public class AppBuilderConfigEditor : UnityEditor.Editor
     {
         private string _buildPath = string.Empty;
 
@@ -94,9 +95,9 @@ namespace PimpochkaGames.AppBuilder.Editor
                 if (EditorGUI.EndChangeCheck())
                 {
                     if (config.AdvertisementModuleConfig.IsEnabled)
-                        AssetDefinePostprocessor.AddCompileDefine(Constants.Define.ADVERTISEMENT, GetBuildTargetGroup());
+                        ScriptingDefinesManager.AddDefine(Constants.Define.ADVERTISEMENT, GetBuildTargetGroup());
                     else
-                        AssetDefinePostprocessor.RemoveCompileDefine(Constants.Define.ADVERTISEMENT, GetBuildTargetGroup());
+                        ScriptingDefinesManager.RemoveDefine(Constants.Define.ADVERTISEMENT, GetBuildTargetGroup());
 
                     EditorUtility.SetDirty(config);
                 }
@@ -131,9 +132,9 @@ namespace PimpochkaGames.AppBuilder.Editor
                 if (EditorGUI.EndChangeCheck())
                 {
                     if (config.LoadingScreenConfig.IsEnabled)
-                        AssetDefinePostprocessor.AddCompileDefine(Constants.Define.LOADING_SCREEN, GetBuildTargetGroup());
+                        ScriptingDefinesManager.AddDefine(Constants.Define.LOADING_SCREEN, GetBuildTargetGroup());
                     else
-                        AssetDefinePostprocessor.RemoveCompileDefine(Constants.Define.LOADING_SCREEN, GetBuildTargetGroup());
+                        ScriptingDefinesManager.RemoveDefine(Constants.Define.LOADING_SCREEN, GetBuildTargetGroup());
 
                     EditorUtility.SetDirty(config);
                 }
