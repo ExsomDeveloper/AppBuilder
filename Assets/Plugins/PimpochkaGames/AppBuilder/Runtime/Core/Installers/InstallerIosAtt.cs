@@ -7,7 +7,7 @@ using Unity.Advertisement.IosSupport;
 
 namespace PimpochkaGames.AppBuilder
 {
-    [CreateAssetMenu(fileName = "InstallerIosAtt", menuName = "AppBuilder/Installer/iOS ATT")]
+    [CreateAssetMenu(fileName = nameof(InstallerIosAtt), menuName = "AppBuilder/Installer/iOS ATT")]
     public class InstallerIosAtt : Installer
     {
         public override void Install(Context context)

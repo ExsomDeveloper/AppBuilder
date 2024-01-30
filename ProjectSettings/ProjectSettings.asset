@@ -135,7 +135,7 @@ PlayerSettings:
     16:10: 1
     16:9: 1
     Others: 1
-  bundleVersion: 1.0
+  bundleVersion: 1.0.0
   preloadedAssets: []
   metroInputSource: 0
   wsaTransparentSwapchain: 0
@@ -156,7 +156,7 @@ PlayerSettings:
   androidSupportedAspectRatio: 1
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
-    Android: com.PG.AppCore
+    Android: com.PimpochkaGames.WatermelonCats
     Standalone: com.DefaultCompany.2DProject
   buildNumber:
     Standalone: 0
@@ -768,10 +768,10 @@ PlayerSettings:
   webGLDecompressionFallback: 0
   webGLPowerPreference: 2
   scriptingDefineSymbols:
-    Android: NEUTRAL_AGE_SCREEN_MODULE;LOADING_SCREEN_MODULE;ADVERTISEMENT_MODULE
-    Standalone: NEUTRAL_AGE_SCREEN_MODULE;LOADING_SCREEN_MODULE;ADVERTISEMENT_MODULE
-    WebGL: NEUTRAL_AGE_SCREEN_MODULE;LOADING_SCREEN_MODULE;ADVERTISEMENT_MODULE
-    iPhone: NEUTRAL_AGE_SCREEN_MODULE;LOADING_SCREEN_MODULE;ADVERTISEMENT_MODULE
+    Android: NEUTRAL_AGE_SCREEN_MODULE;ADVERTISEMENT_MODULE
+    Standalone: NEUTRAL_AGE_SCREEN_MODULE;ADVERTISEMENT_MODULE
+    WebGL: NEUTRAL_AGE_SCREEN_MODULE;ADVERTISEMENT_MODULE
+    iPhone: NEUTRAL_AGE_SCREEN_MODULE;ADVERTISEMENT_MODULE
   additionalCompilerArguments: {}
   platformArchitecture: {}
   scriptingBackend:

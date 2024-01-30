@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "876786674464",
+    "project_id": "watermelon-cats",
+    "storage_bucket": "watermelon-cats.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:876786674464:android:c1a673dd59f7e401180545",
+        "android_client_info": {
+          "package_name": "com.PimpochkaGames.WatermelonCats"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAXJCvhRypyE4zWGao3AnC7gPetRWCLzew"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

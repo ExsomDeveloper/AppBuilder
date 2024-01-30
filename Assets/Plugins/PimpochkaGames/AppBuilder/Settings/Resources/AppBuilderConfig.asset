@@ -22,4 +22,8 @@ MonoBehaviour:
     AdvertisementDebugPrefab: {fileID: 1276181264635081915, guid: 19a4f474cedf821428fd38d55fd7e152, type: 3}
     NeutralAgeScreen: 1
     NeutralAgeScreenManagerPrefab: {fileID: 6912164877605459615, guid: d09e2babfeb31464789250fdd5ab4d28, type: 3}
+  _firebaseModuleConfig:
+    _isEnabled: 0
+    RemoteConfig: 0
+    Crashlytics: 0
   _nextSceneName: MainMenu

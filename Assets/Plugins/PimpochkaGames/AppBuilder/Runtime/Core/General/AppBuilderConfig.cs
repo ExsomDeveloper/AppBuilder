@@ -12,11 +12,13 @@ namespace PimpochkaGames.AppBuilder
         private static UnityPackageDefinition _package;
         [SerializeField] private LoadingScreenModuleConfig _loadingScreenConfig;
         [SerializeField] private AdvertisementModuleConfig _advertisementModuleConfig;
+        [SerializeField] private FirebaseModuleConfig _firebaseModuleConfig;
         [SerializeField] private string _nextSceneName = string.Empty;
 
         public string NextSceneName { get => _nextSceneName; set => _nextSceneName = value; }
         public LoadingScreenModuleConfig LoadingScreenConfig => _loadingScreenConfig;
         public AdvertisementModuleConfig AdvertisementModuleConfig => _advertisementModuleConfig;
+        public FirebaseModuleConfig FirebaseModuleConfig => _firebaseModuleConfig;
         public static AppBuilderConfig Instance => GetSharedInstanceInternal();
         public static string DefaultSettingsAssetName => nameof(AppBuilderConfig);
         public static string PackageName => Package.Name;

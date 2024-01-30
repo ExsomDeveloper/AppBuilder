@@ -6,6 +6,10 @@ namespace PimpochkaGames.AppBuilder
         {
             public const string LOADING_SCREEN = "LOADING_SCREEN_MODULE";
             public const string ADVERTISEMENT = "ADVERTISEMENT_MODULE";
+
+            public const string FIREBASE = "FIREBASE_MODULE";
+            public const string FIREBASE_CRASHLYTICS = "AB_FIREBASE_CRASHLYTICS";
+            public const string FIREBASE_REMOTE_CONFIG = "AB_FIREBASE_REMOTE_CONFIG";
         }
 
         public class URL

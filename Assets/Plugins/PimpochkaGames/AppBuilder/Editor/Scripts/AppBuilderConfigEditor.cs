@@ -24,6 +24,8 @@ namespace PimpochkaGames.AppBuilder.Editor
             DrawLoadingScreenModuleInspector(config);
             EditorGUILayout.Space(10);
             DrawAdvertisementModuleInspector(config);
+            EditorGUILayout.Space(10);
+            DrawFirebaseInspector(config);
 
             if (EditorGUI.EndChangeCheck())
                 EditorUtility.SetDirty(config);
@@ -143,6 +145,69 @@ namespace PimpochkaGames.AppBuilder.Editor
                 if (config.LoadingScreenConfig.IsEnabled)
                 {
                     config.LoadingScreenConfig.LoadingScreenPrefab = EditorGUILayout.ObjectField(config.LoadingScreenConfig.LoadingScreenPrefab, typeof(LoadingScreenView), true) as LoadingScreenView;
+                }
+            }
+        }
+
+        private void DrawFirebaseInspector(AppBuilderConfig config)
+        {
+            using (new EditorGUILayout.VerticalScope("box"))
+            {
+                GUILayout.Label("Firebase module", GetTitleStyle());
+                EditorGUI.BeginChangeCheck();
+                config.FirebaseModuleConfig.IsEnabled = GUILayout.Toggle(config.FirebaseModuleConfig.IsEnabled, "Enabled");
+                if (EditorGUI.EndChangeCheck())
+                {
+                    if (config.FirebaseModuleConfig.IsEnabled)
+                    {
+                        ScriptingDefinesManager.AddDefine(Constants.Define.FIREBASE, GetBuildTargetGroup());
+
+                        if (config.FirebaseModuleConfig.RemoteConfig)
+                            ScriptingDefinesManager.AddDefine(Constants.Define.FIREBASE_REMOTE_CONFIG, GetBuildTargetGroup());
+                        else
+                            ScriptingDefinesManager.RemoveDefine(Constants.Define.FIREBASE_REMOTE_CONFIG, GetBuildTargetGroup());
+
+                        if (config.FirebaseModuleConfig.Crashlytics)
+                            ScriptingDefinesManager.AddDefine(Constants.Define.FIREBASE_CRASHLYTICS, GetBuildTargetGroup());
+                        else
+                            ScriptingDefinesManager.RemoveDefine(Constants.Define.FIREBASE_CRASHLYTICS, GetBuildTargetGroup());
+                    }
+                    else
+                    {
+                        ScriptingDefinesManager.RemoveDefine(Constants.Define.FIREBASE, GetBuildTargetGroup());
+                        ScriptingDefinesManager.RemoveDefine(Constants.Define.FIREBASE_REMOTE_CONFIG, GetBuildTargetGroup());
+                        ScriptingDefinesManager.RemoveDefine(Constants.Define.FIREBASE_CRASHLYTICS, GetBuildTargetGroup());
+                    }
+
+                    EditorUtility.SetDirty(config);
+                }
+                EditorGUILayout.Space(5);
+
+                if (config.FirebaseModuleConfig.IsEnabled)
+                {
+                    EditorGUI.BeginChangeCheck();
+                    config.FirebaseModuleConfig.RemoteConfig = EditorGUILayout.Toggle("Remote Config", config.FirebaseModuleConfig.RemoteConfig);
+                    if (EditorGUI.EndChangeCheck())
+                    {
+                        if (config.FirebaseModuleConfig.RemoteConfig)
+                            ScriptingDefinesManager.AddDefine(Constants.Define.FIREBASE_REMOTE_CONFIG, GetBuildTargetGroup());
+                        else
+                            ScriptingDefinesManager.RemoveDefine(Constants.Define.FIREBASE_REMOTE_CONFIG, GetBuildTargetGroup());
+
+                        EditorUtility.SetDirty(config);
+                    }
+
+                    EditorGUI.BeginChangeCheck();
+                    config.FirebaseModuleConfig.Crashlytics = EditorGUILayout.Toggle("Crashlytics", config.FirebaseModuleConfig.Crashlytics);
+                    if (EditorGUI.EndChangeCheck())
+                    {
+                        if (config.FirebaseModuleConfig.Crashlytics)
+                            ScriptingDefinesManager.AddDefine(Constants.Define.FIREBASE_CRASHLYTICS, GetBuildTargetGroup());
+                        else
+                            ScriptingDefinesManager.RemoveDefine(Constants.Define.FIREBASE_CRASHLYTICS, GetBuildTargetGroup());
+
+                        EditorUtility.SetDirty(config);
+                    }
                 }
             }
         }
