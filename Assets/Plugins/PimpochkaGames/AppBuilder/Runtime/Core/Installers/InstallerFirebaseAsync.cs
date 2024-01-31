@@ -9,8 +9,7 @@ using UnityEngine;
 
 namespace PimpochkaGames.AppBuilder
 {
-    [CreateAssetMenu(fileName = nameof(InstallerFirebase), menuName = "AppBuilder/Installer/Firebase")]
-    public class InstallerFirebase : InstallerAsync
+    public class InstallerFirebaseAsync : IInstallerAsync
     {
 #if AB_FIREBASE_REMOTE_CONFIG
         [SerializeField] private RemoteConfigDefaultProperty<bool>[] _boolProperties;
@@ -18,18 +17,11 @@ namespace PimpochkaGames.AppBuilder
         [SerializeField] private RemoteConfigDefaultProperty<string>[] _stringsProperties;
 #endif
 
-        private enum InitStatus
-        {
-            Wait,
-            Ready,
-            Fail
-        }
-
         private FirebaseApp _app = null;
-        private InitStatus _firebaseStatus;
-        private InitStatus _remoteConfig;
+        private InitializationStatus _firebaseStatus;
+        private InitializationStatus _remoteConfig;
 
-        public async override UniTask InstallAsync(Context context)
+        public async UniTask InstallAsync(Context context)
         {
             _ = FirebaseApp.CheckAndFixDependenciesAsync().ContinueWithOnMainThread(task =>
             {
@@ -45,18 +37,18 @@ namespace PimpochkaGames.AppBuilder
                     SetRemoteConfigDefaults();
 #endif
 
-                    _firebaseStatus = InitStatus.Ready;
+                    _firebaseStatus = InitializationStatus.Ready;
                 }
                 else
                 {
-                    _firebaseStatus = InitStatus.Fail;
+                    _firebaseStatus = InitializationStatus.Failed;
                     Debug.LogError(String.Format(
                       "Could not resolve all Firebase dependencies: {0}", dependencyStatus));
                 }
             });
 
-            var firebaseInitOperation = UniTask.WaitUntilValueChanged(this, x => x._firebaseStatus == InitStatus.Ready || x._firebaseStatus == InitStatus.Fail);
-            var remoteConfigInitOperation = UniTask.WaitUntilValueChanged(this, x => x._remoteConfig == InitStatus.Ready || x._remoteConfig == InitStatus.Fail);
+            var firebaseInitOperation = UniTask.WaitUntilValueChanged(this, x => x._firebaseStatus == InitializationStatus.Ready || x._firebaseStatus == InitializationStatus.Failed);
+            var remoteConfigInitOperation = UniTask.WaitUntilValueChanged(this, x => x._remoteConfig == InitializationStatus.Ready || x._remoteConfig == InitializationStatus.Failed);
 
             await UniTask.WhenAll(firebaseInitOperation, remoteConfigInitOperation)
                 .TimeoutWithoutException(TimeSpan.FromSeconds(5));
@@ -95,7 +87,7 @@ namespace PimpochkaGames.AppBuilder
         {
             if (_app == null)
             {
-                _remoteConfig = InitStatus.Fail;
+                _remoteConfig = InitializationStatus.Failed;
                 Debug.LogError($"Do not use Firebase until it is properly initialized by calling {nameof(InstallerFirebase)}.");
                 return;
             }
@@ -107,7 +99,7 @@ namespace PimpochkaGames.AppBuilder
                {
                    if (!previousTask.IsCompleted)
                    {
-                       _remoteConfig = InitStatus.Fail;
+                       _remoteConfig = InitializationStatus.Failed;
                        Debug.LogError($"{nameof(remoteConfig.FetchAsync)} incomplete: Status '{previousTask.Status}'");
                        return;
                    }
@@ -125,12 +117,12 @@ namespace PimpochkaGames.AppBuilder
                    previousTask =>
                    {
                        Debug.Log($"Remote data loaded and ready (last fetch time {info.FetchTime}).");
-                       _remoteConfig = InitStatus.Ready;
+                       _remoteConfig = InitializationStatus.Ready;
                    });
             }
             else
             {
-                _remoteConfig = InitStatus.Fail;
+                _remoteConfig = InitializationStatus.Failed;
             }
         }
 #endif

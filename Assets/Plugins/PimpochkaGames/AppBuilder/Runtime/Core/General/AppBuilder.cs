@@ -38,19 +38,7 @@ namespace PimpochkaGames.AppBuilder
             DontDestroyOnLoad(gameObjectAppCore);
 
             RegisterModules(config, _context, gameObjectAppCore);
-
-            foreach (var installer in installers)
-            {
-                installer.Install(_context);
-            }
-
-            UniTask[] tasks = new UniTask[installersAsync.Count];
-            for (int i = 0; i < installersAsync.Count; i++)
-            {
-                tasks[i] = installersAsync[i].InstallAsync(_context);
-            }
-
-            await UniTask.WhenAll(tasks);
+            await RunInstallers(installers, installersAsync, _context);
 
 #if ADVERTISEMENT_MODULE
             if (config.AdvertisementModuleConfig.NeutralAgeScreen)
@@ -79,6 +67,46 @@ namespace PimpochkaGames.AppBuilder
             var advertisementModule = root.AddComponent<AdvertisementModule>();
             advertisementModule.Initialize(config.AdvertisementModuleConfig);
 #endif
+        }
+
+        private async static UniTask RunInstallers(List<Installer> installers, List<InstallerAsync> installersAsync, Context context)
+        {
+            foreach (var installer in installers)
+                installer.Install(_context);
+
+            foreach (var installer in GetCoreInstallers())
+                installer.Install(_context);
+
+            var coreInstallersAsync = GetCoreInstallersAsync();
+            UniTask[] tasks = new UniTask[coreInstallersAsync.Length + installersAsync.Count];
+            int index = 0;
+            for (; index < coreInstallersAsync.Length; index++)
+                tasks[index] = coreInstallersAsync[index].InstallAsync(_context);
+
+            for (; index < tasks.Length; index++)
+                tasks[index] = installersAsync[index].InstallAsync(_context);
+
+            await UniTask.WhenAll(tasks);
+        }
+
+        private static IInstaller[] GetCoreInstallers()
+        {
+            return new IInstaller[]
+            {
+#if UNITY_IOS
+                new InstallerIosAtt()
+#endif
+            };
+        }
+
+        private static IInstallerAsync[] GetCoreInstallersAsync()
+        {
+            return new IInstallerAsync[]
+            {
+#if FIREBASE_MODULE
+                new InstallerFirebaseAsync()
+#endif
+            };
         }
     }
 }
